@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>bookstores</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>DispatcherServlet</servlet-name>
+  	<servlet-class>com.book.core.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>ContextLoadPath</param-name>
+  		<param-value>classpath:servlet.properties</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DispatcherServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+   <!-- 登录过滤 -->
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.book.web.filter.LoginFilter</filter-class>
+  </filter>  
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/user/destroy.do</url-pattern>
+  	<url-pattern>/cart/init.do</url-pattern>
+  	<url-pattern>/cart/addcart.do</url-pattern>
+  	<url-pattern>/cart/showcart.do</url-pattern>
+  	<url-pattern>/cart/delcart.do</url-pattern>
+  	<url-pattern>/cart/confirmorder.do</url-pattern>
+  	<url-pattern>/cart/changbnumber.do</url-pattern>
+  	<url-pattern>/cart/showcount.do</url-pattern>
+  	<url-pattern>/cart.jsp</url-pattern>
+  	<url-pattern>/confirm_order.jsp</url-pattern>
+	<url-pattern>/order/addorder.do</url-pattern>
+	<url-pattern>/order/showorder.do</url-pattern>
+	<url-pattern>/order/showorderbook.do</url-pattern>
+	<url-pattern>/order/showadress.do</url-pattern>
+	<url-pattern>/order/showdetails.do</url-pattern>
+  	<url-pattern>/order.jsp</url-pattern>
+  </filter-mapping>
+	
+</web-app>
